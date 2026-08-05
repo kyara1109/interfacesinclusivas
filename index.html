@@ -3,106 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia Prático de Segurança Digital</title>
+    <title>Guia de Segurança Digital - Terceira Idade</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <nav class="barra-acessibilidade" aria-label="Acessibilidade">
-        <div class="container-barra">
-            <span>Tamanho da fonte:</span>
-            <button class="btn-acessibilidade" title="Fonte em tamanho normal">A</button>
-            <button class="btn-acessibilidade btn-grande" title="Fonte grande">A+</button>
+    <input type="checkbox" id="toggle-contraste" class="sr-only">
+
+    <div class="barra-acessibilidade">
+        <div class="container flex-barra">
+            <span>Acessibilidade Visual:</span>
+            <label for="toggle-contraste" class="btn-toggle" tabIndex="0">
+                <span class="icone-modo">👁️</span> Alternar Alto Contraste
+            </label>
         </div>
-    </nav>
-
-    <div class="container">
-        
-        <header role="banner" class="header-principal">
-            <div class="escudo-icone" aria-hidden="true">🛡️</div>
-            <h1>Segurança na Internet</h1>
-            <p>Guia prático e seguro para navegar com tranquilidade no dia a dia</p>
-        </header>
-
-        <section class="sumario" aria-label="Sumário rápido">
-            <h2>Nesta página você aprenderá:</h2>
-            <ul>
-                <li><a href="#dica-1">1. Golpes de mensagens</a></li>
-                <li><a href="#dica-2">2. Cuidado com links</a></li>
-                <li><a href="#dica-3">3. Proteção de senhas</a></li>
-            </ul>
-        </section>
-
-        <main role="main">
-
-            <article id="dica-1" class="card-dica">
-                <header class="card-cabecalho">
-                    <span class="badge-numero">1</span>
-                    <h2>Cuidado com Mensagens Estranhas</h2>
-                </header>
-                <div class="card-corpo">
-                    <p>
-                        Se alguém mandar mensagem no WhatsApp ou SMS pedindo <strong>dinheiro urgente</strong> ou alegando uma emergência com um parente, mantenha a calma.
-                    </p>
-                    <div class="caixa-alerta alerta-perigo">
-                        <span class="icone-alerta" aria-hidden="true">⚠️</span>
-                        <div>
-                            <strong>O que fazer:</strong> Ligue diretamente no número antigo que você já tem salvo dessa pessoa antes de fazer qualquer transferência.
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <article id="dica-2" class="card-dica">
-                <header class="card-cabecalho">
-                    <span class="badge-numero">2</span>
-                    <h2>Não Clique em Links Desconhecidos</h2>
-                </header>
-                <div class="card-corpo">
-                    <p>
-                        Links recebidos por SMS, e-mail ou mensagens podem te levar para páginas falsas projetadas para roubar dados pessoais ou bancários.
-                    </p>
-                    <div class="caixa-alerta alerta-info">
-                        <span class="icone-alerta" aria-hidden="true">💡</span>
-                        <div>
-                            <strong>Atenção para promessas falsas:</strong> Desconfie de "Sua conta foi bloqueada", "Você ganhou um prêmio" ou "Recanteie seus dados".
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <article id="dica-3" class="card-dica">
-                <header class="card-cabecalho">
-                    <span class="badge-numero">3</span>
-                    <h2>Senhas São Pessoais e Secretas</h2>
-                </header>
-                <div class="card-corpo">
-                    <p>
-                        Suas senhas bancárias e de redes sociais servem como a chave da sua casa. <strong>Nunca as compartilhe</strong> com terceiros.
-                    </p>
-                    <div class="caixa-alerta alerta-seguranca">
-                        <span class="icone-alerta" aria-hidden="true">🔒</span>
-                        <div>
-                            <strong>Regra de Ouro:</strong> Bancos e órgãos oficiais nunca ligam pedindo a sua senha nem código de confirmação do WhatsApp.
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-            <section class="secao-suporte">
-                <h2>Precisa de Ajuda Agora?</h2>
-                <a href="tel:190" class="btn-acao-principal">
-                    <span aria-hidden="true">📞</span> Peça ajuda a um familiar de confiança
-                </a>
-            </section>
-
-        </main>
-
-        <footer role="contentinfo">
-            <p>Plataforma adaptada para máxima acessibilidade visual e facilidade de leitura.</p>
-        </footer>
-
     </div>
 
-</body>
-</html>
+    <div class="container app-container">
+        
+        <header role="banner" class="header-app">
+            <div class="escudo-app" aria-hidden="true">🛡️</div>
+            <h1>Portal de Segurança Digital</h1>
+            <p>Guia simples para proteger suas informações na internet</p>
+        </header>
+
+        <nav class="sumario-rapido" aria-label="Acesso rápido">
+            <h2>Navegue pelas Dicas:</h2>
+            <div class="links-grid">
+                <a href="#dica-1" class="link-card">📱 1. Mensagens no WhatsApp</a>
+                <a href="#dica-2" class="link-card">🔗 2. Cuidado com Links</a>
+                <a href="#dica-3" class="link-card">🔑 3. Proteção de Senhas</a>
+                <a href="#faq" class="link
