@@ -3,59 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Seguranca Digital para a Terceira Idade</title>
+    <title>Guia Prático de Segurança Digital</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <nav class="barra-acessibilidade" aria-label="Acessibilidade">
+        <div class="container-barra">
+            <span>Tamanho da fonte:</span>
+            <button class="btn-acessibilidade" title="Fonte em tamanho normal">A</button>
+            <button class="btn-acessibilidade btn-grande" title="Fonte grande">A+</button>
+        </div>
+    </nav>
+
     <div class="container">
         
-        <header role="banner">
-            <h1>Seguranca na Internet</h1>
-            <p>Dicas simples para navegar com tranquilidade</p>
+        <header role="banner" class="header-principal">
+            <div class="escudo-icone" aria-hidden="true">🛡️</div>
+            <h1>Segurança na Internet</h1>
+            <p>Guia prático e seguro para navegar com tranquilidade no dia a dia</p>
         </header>
+
+        <section class="sumario" aria-label="Sumário rápido">
+            <h2>Nesta página você aprenderá:</h2>
+            <ul>
+                <li><a href="#dica-1">1. Golpes de mensagens</a></li>
+                <li><a href="#dica-2">2. Cuidado com links</a></li>
+                <li><a href="#dica-3">3. Proteção de senhas</a></li>
+            </ul>
+        </section>
 
         <main role="main">
 
-            <article class="card-dica">
-                <h2>1. Cuidado com Mensagens Estranhas</h2>
-                <p>
-                    Se receber uma mensagem no WhatsApp ou SMS pedindo dinheiro urgente, 
-                    <strong>nao envie nada imediatamente</strong>.
-                </p>
-                <div class="alerta">
-                    O que fazer: Ligue diretamente para a pessoa (filho, neto ou amigo) para confirmar se e verdade.
+            <article id="dica-1" class="card-dica">
+                <header class="card-cabecalho">
+                    <span class="badge-numero">1</span>
+                    <h2>Cuidado com Mensagens Estranhas</h2>
+                </header>
+                <div class="card-corpo">
+                    <p>
+                        Se alguém mandar mensagem no WhatsApp ou SMS pedindo <strong>dinheiro urgente</strong> ou alegando uma emergência com um parente, mantenha a calma.
+                    </p>
+                    <div class="caixa-alerta alerta-perigo">
+                        <span class="icone-alerta" aria-hidden="true">⚠️</span>
+                        <div>
+                            <strong>O que fazer:</strong> Ligue diretamente no número antigo que você já tem salvo dessa pessoa antes de fazer qualquer transferência.
+                        </div>
+                    </div>
                 </div>
             </article>
 
-            <article class="card-dica">
-                <h2>2. Nao Clique em Links Desconhecidos</h2>
-                <p>
-                    Links enviados por mensagens de texto ou e-mail podem levar a sites falsos feitos para roubar dados.
-                </p>
-                <p>
-                    Evite clicar em frases como: <em>"Voce ganhou um premio!"</em> ou <em>"Sua conta bancaria foi bloqueada"</em>.
-                </p>
-            </article>
-
-            <article class="card-dica">
-                <h2>3. Senhas Sao Segredos</h2>
-                <p>
-                    Nunca informe suas senhas do banco ou de redes sociais para ninguem por telefone, mensagem ou e-mail.
-                </p>
-                <div class="alerta">
-                    Lembre-se: Nem os bancos nem a policia pedem sua senha por telefone.
+            <article id="dica-2" class="card-dica">
+                <header class="card-cabecalho">
+                    <span class="badge-numero">2</span>
+                    <h2>Não Clique em Links Desconhecidos</h2>
+                </header>
+                <div class="card-corpo">
+                    <p>
+                        Links recebidos por SMS, e-mail ou mensagens podem te levar para páginas falsas projetadas para roubar dados pessoais ou bancários.
+                    </p>
+                    <div class="caixa-alerta alerta-info">
+                        <span class="icone-alerta" aria-hidden="true">💡</span>
+                        <div>
+                            <strong>Atenção para promessas falsas:</strong> Desconfie de "Sua conta foi bloqueada", "Você ganhou um prêmio" ou "Recanteie seus dados".
+                        </div>
+                    </div>
                 </div>
             </article>
 
-            <a href="#" class="botao-ajuda" role="button">
-                Em caso de duvida, peca ajuda a um familiar
-            </a>
+            <article id="dica-3" class="card-dica">
+                <header class="card-cabecalho">
+                    <span class="badge-numero">3</span>
+                    <h2>Senhas São Pessoais e Secretas</h2>
+                </header>
+                <div class="card-corpo">
+                    <p>
+                        Suas senhas bancárias e de redes sociais servem como a chave da sua casa. <strong>Nunca as compartilhe</strong> com terceiros.
+                    </p>
+                    <div class="caixa-alerta alerta-seguranca">
+                        <span class="icone-alerta" aria-hidden="true">🔒</span>
+                        <div>
+                            <strong>Regra de Ouro:</strong> Bancos e órgãos oficiais nunca ligam pedindo a sua senha nem código de confirmação do WhatsApp.
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <section class="secao-suporte">
+                <h2>Precisa de Ajuda Agora?</h2>
+                <a href="tel:190" class="btn-acao-principal">
+                    <span aria-hidden="true">📞</span> Peça ajuda a um familiar de confiança
+                </a>
+            </section>
 
         </main>
 
         <footer role="contentinfo">
-            <p>Conteudo educativo focado em acessibilidade e seguranca digital.</p>
+            <p>Plataforma adaptada para máxima acessibilidade visual e facilidade de leitura.</p>
         </footer>
 
     </div>
