@@ -1,4 +1,4 @@
-/* Variaveis de Cores e Configuracoes de Acessibilidade */
+
 :root {
     --cor-fundo: #F4F6F9;
     --cor-card: #FFFFFF;
@@ -14,17 +14,17 @@ body {
     color: var(--cor-texto);
     margin: 0;
     padding: 20px;
-    font-size: 22px; /* Fonte ampliada para facilitar a leitura */
+    font-size: 22px; 
     line-height: 1.6;
 }
 
-/* Container Principal */
+
 .container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-/* Cabecalho */
+
 header {
     background-color: var(--cor-primaria);
     color: #FFFFFF;
@@ -44,7 +44,7 @@ header p {
     margin: 0;
 }
 
-/* Cartoes de Dicas */
+
 .card-dica {
     background-color: var(--cor-card);
     border: 3px solid var(--cor-borda);
@@ -59,7 +59,7 @@ header p {
     margin-top: 0;
 }
 
-/* Destaque para Avisos de Perigo */
+
 .alerta {
     background-color: #FFF3CD;
     border-left: 8px solid var(--cor-destaque);
@@ -68,7 +68,6 @@ header p {
     font-weight: bold;
 }
 
-/* Botão Grande de Suporte */
 .botao-ajuda {
     display: block;
     width: 100%;
@@ -90,7 +89,7 @@ header p {
     outline: 4px solid #000000;
 }
 
-/* Rodapé */
+
 footer {
     text-align: center;
     margin-top: 40px;
