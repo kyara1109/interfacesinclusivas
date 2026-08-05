@@ -1,0 +1,99 @@
+/* Variaveis de Cores e Configuracoes de Acessibilidade */
+:root {
+    --cor-fundo: #F4F6F9;
+    --cor-card: #FFFFFF;
+    --cor-texto: #1A1A1A;
+    --cor-primaria: #00468C;
+    --cor-destaque: #D9381E;
+    --cor-borda: #CCCCCC;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    margin: 0;
+    padding: 20px;
+    font-size: 22px; /* Fonte ampliada para facilitar a leitura */
+    line-height: 1.6;
+}
+
+/* Container Principal */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Cabecalho */
+header {
+    background-color: var(--cor-primaria);
+    color: #FFFFFF;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0 0 10px 0;
+}
+
+header p {
+    font-size: 24px;
+    margin: 0;
+}
+
+/* Cartoes de Dicas */
+.card-dica {
+    background-color: var(--cor-card);
+    border: 3px solid var(--cor-borda);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+.card-dica h2 {
+    color: var(--cor-primaria);
+    font-size: 28px;
+    margin-top: 0;
+}
+
+/* Destaque para Avisos de Perigo */
+.alerta {
+    background-color: #FFF3CD;
+    border-left: 8px solid var(--cor-destaque);
+    padding: 15px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* Botão Grande de Suporte */
+.botao-ajuda {
+    display: block;
+    width: 100%;
+    background-color: var(--cor-destaque);
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 12px;
+    margin-top: 40px;
+    box-sizing: border-box;
+}
+
+.botao-ajuda:hover, 
+.botao-ajuda:focus {
+    background-color: #B22222;
+    outline: 4px solid #000000;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #555555;
+}
