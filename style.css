@@ -244,7 +244,7 @@ body {
 .alerta-sucesso {
     background-color: var(--alerta-sucesso-bg);
     color: var(--alerta-sucesso-txt);
-    border-color: #059669;
+    border-color: #d88509;
 }
 
 /* ==========================================================================
