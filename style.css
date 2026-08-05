@@ -1,98 +1,543 @@
-
+/* Dynamic Root Variables */
 :root {
-    --cor-fundo: #F4F6F9;
-    --cor-card: #FFFFFF;
-    --cor-texto: #1A1A1A;
-    --cor-primaria: #00468C;
-    --cor-destaque: #D9381E;
-    --cor-borda: #CCCCCC;
+    --bg-pagina: #F0F4F8;
+    --bg-card: #FFFFFF;
+    --texto-principal: #0F172A;
+    --texto-secundario: #334155;
+    
+    --azul-primario: #004085;
+    --azul-escuro: #002752;
+    --azul-suave: #E7F1FF;
+    
+    --vermelho-alerta: #842029;
+    --vermelho-fundo: #F8D7DA;
+    --vermelho-borda: #F5C2C7;
+
+    --amarelo-alerta: #664D03;
+    --amarelo-fundo: #FFF3CD;
+    --amarelo-borda: #FFECB5;
+
+    --verde-alerta: #0F5132;
+    --verde-fundo: #D1E7DD;
+    --verde-borda: #BADBCC;
+
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-foco: 0 0 0 4px #0056B3;
+}
+
+/* Reset básico e tipografia */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto);
-    margin: 0;
-    padding: 20px;
-    font-size: 22px; 
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--bg-pagina);
+    color: var(--texto-principal);
+    font-size: 22px;
     line-height: 1.6;
 }
 
-
 .container {
-    max-width: 800px;
+    max-width: 850px;
     margin: 0 auto;
+    padding: 0 20px 40px 20px;
 }
 
-
-header {
-    background-color: var(--cor-primaria);
+/* Barra de Acessibilidade */
+.barra-acessibilidade {
+    background-color: var(--azul-escuro);
     color: #FFFFFF;
-    padding: 30px 20px;
-    text-align: center;
-    border-radius: 12px;
-    margin-bottom: 30px;
-}
-
-h1 {
-    font-size: 32px;
-    margin: 0 0 10px 0;
-}
-
-header p {
-    font-size: 24px;
-    margin: 0;
-}
-
-
-.card-dica {
-    background-color: var(--cor-card);
-    border: 3px solid var(--cor-borda);
-    border-radius: 12px;
-    padding: 25px;
+    padding: 10px 0;
     margin-bottom: 25px;
 }
 
-.card-dica h2 {
-    color: var(--cor-primaria);
-    font-size: 28px;
-    margin-top: 0;
+.container-barra {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
 }
 
-
-.alerta {
-    background-color: #FFF3CD;
-    border-left: 8px solid var(--cor-destaque);
-    padding: 15px;
-    margin-top: 15px;
+.btn-acessibilidade {
+    background: #FFFFFF;
+    color: var(--azul-escuro);
+    border: 2px solid #FFFFFF;
+    padding: 6px 16px;
+    font-size: 18px;
     font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
 }
 
-.botao-ajuda {
-    display: block;
-    width: 100%;
-    background-color: var(--cor-destaque);
+.btn-acessibilidade.btn-grande {
+    font-size: 22px;
+}
+
+.btn-acessibilidade:hover,
+.btn-acessibilidade:focus {
+    background-color: #E2E8F0;
+    outline: var(--sombra-foco);
+}
+
+/* Header */
+.header-principal {
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
     color: #FFFFFF;
+    padding: 40px 25px;
     text-align: center;
+    border-radius: 16px;
+    box-shadow: var(--sombra-card);
+    margin-bottom: 30px;
+}
+
+.escudo-icone {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.header-principal h1 {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.header-principal p {
+    font-size: 24px;
+    color: #E2E8F0;
+}
+
+/* Sumário Navegável */
+.sumario {
+    background-color: var(--bg-card);
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+}
+
+.sumario h2 {
+    font-size: 22px;
+    color: var(--texto-secundario);
+    margin-bottom: 12px;
+}
+
+.sumario ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.sumario a {
+    display: inline-block;
+    background-color: var(--azul-suave);
+    color: var(--azul-primario);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #BFDBFE;
+}
+
+.sumario a:hover,
+.sumario a:focus {
+    background-color: var(--azul-primario);
+    color: #FFFFFF;
+}
+
+/* Cards de Dicas */
+.card-dica {
+    background-color: var(--bg-card);
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra-card);
+}
+
+.card-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #F1F5F9;
+    padding-bottom: 15px;
+}
+
+.badge-numero {
+    background-color: var(--azul-primario);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-cabecalho h2 {
+    font-size: 28px;
+    color: var(--azul-escuro);
+}
+
+.card-corpo p {
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* Caixas de Alerta Especializadas */
+.caixa-alerta {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
     padding: 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.icone-alerta {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.alerta-perigo {
+    background-color: var(--vermelho-fundo);
+    color: var(--vermelho-alerta);
+    border-color: var(--vermelho-borda);
+}
+
+.alerta-info {
+    background-color: var(--amarelo-fundo);
+    color: var(--amarelo-alerta);
+    border-color: var(--amarelo-borda);
+}
+/* Dynamic Root Variables */
+:root {
+    --bg-pagina: #F0F4F8;
+    --bg-card: #FFFFFF;
+    --texto-principal: #0F172A;
+    --texto-secundario: #334155;
+    
+    --azul-primario: #004085;
+    --azul-escuro: #002752;
+    --azul-suave: #E7F1FF;
+    
+    --vermelho-alerta: #842029;
+    --vermelho-fundo: #F8D7DA;
+    --vermelho-borda: #F5C2C7;
+
+    --amarelo-alerta: #664D03;
+    --amarelo-fundo: #FFF3CD;
+    --amarelo-borda: #FFECB5;
+
+    --verde-alerta: #0F5132;
+    --verde-fundo: #D1E7DD;
+    --verde-borda: #BADBCC;
+
+    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --sombra-foco: 0 0 0 4px #0056B3;
+}
+
+/* Reset básico e tipografia */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--bg-pagina);
+    color: var(--texto-principal);
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px 40px 20px;
+}
+
+/* Barra de Acessibilidade */
+.barra-acessibilidade {
+    background-color: var(--azul-escuro);
+    color: #FFFFFF;
+    padding: 10px 0;
+    margin-bottom: 25px;
+}
+
+.container-barra {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.btn-acessibilidade {
+    background: #FFFFFF;
+    color: var(--azul-escuro);
+    border: 2px solid #FFFFFF;
+    padding: 6px 16px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-acessibilidade.btn-grande {
+    font-size: 22px;
+}
+
+.btn-acessibilidade:hover,
+.btn-acessibilidade:focus {
+    background-color: #E2E8F0;
+    outline: var(--sombra-foco);
+}
+
+/* Header */
+.header-principal {
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
+    color: #FFFFFF;
+    padding: 40px 25px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: var(--sombra-card);
+    margin-bottom: 30px;
+}
+
+.escudo-icone {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.header-principal h1 {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.header-principal p {
+    font-size: 24px;
+    color: #E2E8F0;
+}
+
+/* Sumário Navegável */
+.sumario {
+    background-color: var(--bg-card);
+    border: 2px solid #CBD5E1;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 30px;
+}
+
+.sumario h2 {
+    font-size: 22px;
+    color: var(--texto-secundario);
+    margin-bottom: 12px;
+}
+
+.sumario ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.sumario a {
+    display: inline-block;
+    background-color: var(--azul-suave);
+    color: var(--azul-primario);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #BFDBFE;
+}
+
+.sumario a:hover,
+.sumario a:focus {
+    background-color: var(--azul-primario);
+    color: #FFFFFF;
+}
+
+/* Cards de Dicas */
+.card-dica {
+    background-color: var(--bg-card);
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: var(--sombra-card);
+}
+
+.card-cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #F1F5F9;
+    padding-bottom: 15px;
+}
+
+.badge-numero {
+    background-color: var(--azul-primario);
+    color: #FFFFFF;
+    font-size: 24px;
+    font-weight: bold;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.card-cabecalho h2 {
+    font-size: 28px;
+    color: var(--azul-escuro);
+}
+
+.card-corpo p {
+    color: var(--texto-secundario);
+    margin-bottom: 20px;
+}
+
+/* Caixas de Alerta Especializadas */
+.caixa-alerta {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.icone-alerta {
+    font-size: 30px;
+    line-height: 1;
+}
+
+.alerta-perigo {
+    background-color: var(--vermelho-fundo);
+    color: var(--vermelho-alerta);
+    border-color: var(--vermelho-borda);
+}
+
+.alerta-info {
+    background-color: var(--amarelo-fundo);
+    color: var(--amarelo-alerta);
+    border-color: var(--amarelo-borda);
+}
+
+.alerta-seguranca {
+    background-color: var(--verde-fundo);
+    color: var(--verde-alerta);
+    border-color: var(--verde-borda);
+}
+
+/* Botão de Chamada de Ação */
+.secao-suporte {
+    text-align: center;
+    margin-top: 40px;
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: 2px solid #E2E8F0;
+}
+
+.secao-suporte h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.btn-acao-principal {
+    display: inline-block;
+    width: 100%;
+    background-color: #D9381E;
+    color: #FFFFFF;
+    text-decoration: none;
     font-size: 26px;
     font-weight: bold;
-    text-decoration: none;
+    padding: 22px 20px;
     border-radius: 12px;
-    margin-top: 40px;
-    box-sizing: border-box;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
 }
 
-.botao-ajuda:hover, 
-.botao-ajuda:focus {
+.btn-acao-principal:hover,
+.btn-acao-principal:focus {
     background-color: #B22222;
-    outline: 4px solid #000000;
+    outline: var(--sombra-foco);
 }
 
-
+/* Rodapé */
 footer {
     text-align: center;
     margin-top: 40px;
     font-size: 18px;
-    color: #555555;
+    color: #64748B;
+}
+.alerta-seguranca {
+    background-color: var(--verde-fundo);
+    color: var(--verde-alerta);
+    border-color: var(--verde-borda);
+}
+
+/* Botão de Chamada de Ação */
+.secao-suporte {
+    text-align: center;
+    margin-top: 40px;
+    background-color: var(--bg-card);
+    padding: 30px;
+    border-radius: 16px;
+    border: 2px solid #E2E8F0;
+}
+
+.secao-suporte h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.btn-acao-principal {
+    display: inline-block;
+    width: 100%;
+    background-color: #D9381E;
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 22px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.2s ease;
+}
+
+.btn-acao-principal:hover,
+.btn-acao-principal:focus {
+    background-color: #B22222;
+    outline: var(--sombra-foco);
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 18px;
+    color: #64748B;
 }
