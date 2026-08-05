@@ -1,31 +1,48 @@
-/* Dynamic Root Variables */
+/* ==========================================================================
+   1. VARIÁVEIS DE DESIGN E TEMAS (PADRÃO & ALTO CONTRASTE)
+   ========================================================================== */
 :root {
-    --bg-pagina: #F0F4F8;
+    --bg-pagina: #F4F7FA;
     --bg-card: #FFFFFF;
-    --texto-principal: #0F172A;
-    --texto-secundario: #334155;
+    --texto-principal: #1E293B;
+    --texto-suave: #475569;
     
-    --azul-primario: #004085;
-    --azul-escuro: #002752;
-    --azul-suave: #E7F1FF;
-    
-    --vermelho-alerta: #842029;
-    --vermelho-fundo: #F8D7DA;
-    --vermelho-borda: #F5C2C7;
+    --cor-primaria: #0B4F6C;
+    --cor-primaria-hover: #012A36;
+    --cor-destaque: #D9381E;
 
-    --amarelo-alerta: #664D03;
-    --amarelo-fundo: #FFF3CD;
-    --amarelo-borda: #FFECB5;
+    --alerta-perigo-bg: #FEE2E2;
+    --alerta-perigo-txt: #991B1B;
+    --alerta-perigo-borda: #FCA5A5;
 
-    --verde-alerta: #0F5132;
-    --verde-fundo: #D1E7DD;
-    --verde-borda: #BADBCC;
+    --alerta-atencao-bg: #FEF3C7;
+    --alerta-atencao-txt: #92400E;
+    --alerta-atencao-borda: #FDE68A;
 
-    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --sombra-foco: 0 0 0 4px #0056B3;
+    --alerta-sucesso-bg: #D1FAE5;
+    --alerta-sucesso-txt: #065F46;
+    --alerta-sucesso-borda: #6EE7B7;
+
+    --sombra: 0 4px 15px rgba(0, 0, 0, 0.06);
+    --borda-suave: 2px solid #E2E8F0;
 }
 
-/* Reset básico e tipografia */
+/* Regra CSS para trocar as cores quando o checkbox de contraste for ativado */
+#toggle-contraste:checked ~ .app-container,
+#toggle-contraste:checked ~ .barra-acessibilidade {
+    --bg-pagina: #000000;
+    --bg-card: #121212;
+    --texto-principal: #FFFFFF;
+    --texto-suave: #F1F5F9;
+    --cor-primaria: #00E5FF;
+    --cor-primaria-hover: #80D8FF;
+    --cor-destaque: #FF5252;
+    --borda-suave: 3px solid #FFFFFF;
+}
+
+/* ==========================================================================
+   2. REGRAS GERAIS E ESTRUTURA
+   ========================================================================== */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -38,506 +55,323 @@ body {
     color: var(--texto-principal);
     font-size: 22px;
     line-height: 1.6;
+    transition: background-color 0.3s ease;
+}
+
+/* Ocultar elementos acessíveis apenas para leitores de tela */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 .container {
     max-width: 850px;
     margin: 0 auto;
-    padding: 0 20px 40px 20px;
-}
-
-/* Barra de Acessibilidade */
-.barra-acessibilidade {
-    background-color: var(--azul-escuro);
-    color: #FFFFFF;
-    padding: 10px 0;
-    margin-bottom: 25px;
-}
-
-.container-barra {
-    max-width: 850px;
-    margin: 0 auto;
     padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
 }
 
-.btn-acessibilidade {
-    background: #FFFFFF;
-    color: var(--azul-escuro);
-    border: 2px solid #FFFFFF;
-    padding: 6px 16px;
+/* ==========================================================================
+   3. BARRA DE ACESSIBILIDADE E MODO ALTO CONTRASTE
+   ========================================================================== */
+.barra-acessibilidade {
+    background-color: #0F172A;
+    color: #FFFFFF;
+    padding: 12px 0;
+}
+
+.flex-barra {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-toggle {
+    background-color: #FFFFFF;
+    color: #0F172A;
+    padding: 8px 18px;
+    border-radius: 8px;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 6px;
     cursor: pointer;
+    border: 2px solid #FFFFFF;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
-.btn-acessibilidade.btn-grande {
-    font-size: 22px;
-}
-
-.btn-acessibilidade:hover,
-.btn-acessibilidade:focus {
+.btn-toggle:hover, .btn-toggle:focus {
     background-color: #E2E8F0;
-    outline: var(--sombra-foco);
+    outline: 3px solid #00E5FF;
 }
 
-/* Header */
-.header-principal {
-    background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
+/* ==========================================================================
+   4. CABEÇALHO E SUMÁRIO RÁPIDO
+   ========================================================================== */
+.header-app {
+    background: linear-gradient(135deg, var(--cor-primaria), #02182B);
     color: #FFFFFF;
-    padding: 40px 25px;
     text-align: center;
-    border-radius: 16px;
-    box-shadow: var(--sombra-card);
-    margin-bottom: 30px;
+    padding: 40px 20px;
+    border-radius: 20px;
+    margin: 25px 0;
+    box-shadow: var(--sombra);
 }
 
-.escudo-icone {
-    font-size: 50px;
+.escudo-app {
+    font-size: 55px;
     margin-bottom: 10px;
 }
 
-.header-principal h1 {
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
+.header-app h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
 }
 
-.header-principal p {
-    font-size: 24px;
-    color: #E2E8F0;
-}
-
-/* Sumário Navegável */
-.sumario {
+.sumario-rapido {
     background-color: var(--bg-card);
-    border: 2px solid #CBD5E1;
-    border-radius: 12px;
-    padding: 20px 25px;
-    margin-bottom: 30px;
-}
-
-.sumario h2 {
-    font-size: 22px;
-    color: var(--texto-secundario);
-    margin-bottom: 12px;
-}
-
-.sumario ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.sumario a {
-    display: inline-block;
-    background-color: var(--azul-suave);
-    color: var(--azul-primario);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid #BFDBFE;
-}
-
-.sumario a:hover,
-.sumario a:focus {
-    background-color: var(--azul-primario);
-    color: #FFFFFF;
-}
-
-/* Cards de Dicas */
-.card-dica {
-    background-color: var(--bg-card);
-    border: 2px solid #E2E8F0;
+    padding: 25px;
     border-radius: 16px;
-    padding: 30px;
+    border: var(--borda-suave);
     margin-bottom: 30px;
-    box-shadow: var(--sombra-card);
 }
 
-.card-cabecalho {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #F1F5F9;
-    padding-bottom: 15px;
-}
-
-.badge-numero {
-    background-color: var(--azul-primario);
-    color: #FFFFFF;
+.sumario-rapido h2 {
     font-size: 24px;
-    font-weight: bold;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
+    margin-bottom: 15px;
 }
 
-.card-cabecalho h2 {
-    font-size: 28px;
-    color: var(--azul-escuro);
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
 }
 
-.card-corpo p {
-    color: var(--texto-secundario);
-    margin-bottom: 20px;
-}
-
-/* Caixas de Alerta Especializadas */
-.caixa-alerta {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
-    border-radius: 10px;
-    border: 2px solid transparent;
-}
-
-.icone-alerta {
-    font-size: 30px;
-    line-height: 1;
-}
-
-.alerta-perigo {
-    background-color: var(--vermelho-fundo);
-    color: var(--vermelho-alerta);
-    border-color: var(--vermelho-borda);
-}
-
-.alerta-info {
-    background-color: var(--amarelo-fundo);
-    color: var(--amarelo-alerta);
-    border-color: var(--amarelo-borda);
-}
-/* Dynamic Root Variables */
-:root {
-    --bg-pagina: #F0F4F8;
-    --bg-card: #FFFFFF;
-    --texto-principal: #0F172A;
-    --texto-secundario: #334155;
-    
-    --azul-primario: #004085;
-    --azul-escuro: #002752;
-    --azul-suave: #E7F1FF;
-    
-    --vermelho-alerta: #842029;
-    --vermelho-fundo: #F8D7DA;
-    --vermelho-borda: #F5C2C7;
-
-    --amarelo-alerta: #664D03;
-    --amarelo-fundo: #FFF3CD;
-    --amarelo-borda: #FFECB5;
-
-    --verde-alerta: #0F5132;
-    --verde-fundo: #D1E7DD;
-    --verde-borda: #BADBCC;
-
-    --sombra-card: 0 4px 12px rgba(0, 0, 0, 0.08);
-    --sombra-foco: 0 0 0 4px #0056B3;
-}
-
-/* Reset básico e tipografia */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+.link-card {
     background-color: var(--bg-pagina);
     color: var(--texto-principal);
-    font-size: 22px;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 0 20px 40px 20px;
-}
-
-/* Barra de Acessibilidade */
-.barra-acessibilidade {
-    background-color: var(--azul-escuro);
-    color: #FFFFFF;
-    padding: 10px 0;
-    margin-bottom: 25px;
-}
-
-.container-barra {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 12px;
-}
-
-.btn-acessibilidade {
-    background: #FFFFFF;
-    color: var(--azul-escuro);
-    border: 2px solid #FFFFFF;
-    padding: 6px 16px;
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 10px;
     font-size: 18px;
     font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
+    border: var(--borda-suave);
+    display: block;
 }
 
-.btn-acessibilidade.btn-grande {
-    font-size: 22px;
-}
-
-.btn-acessibilidade:hover,
-.btn-acessibilidade:focus {
-    background-color: #E2E8F0;
-    outline: var(--sombra-foco);
-}
-
-/* Header */
-.header-principal {
-    background: linear-gradient(135deg, var(--azul-primario), var(--azul-escuro));
-    color: #FFFFFF;
-    padding: 40px 25px;
-    text-align: center;
-    border-radius: 16px;
-    box-shadow: var(--sombra-card);
-    margin-bottom: 30px;
-}
-
-.escudo-icone {
-    font-size: 50px;
-    margin-bottom: 10px;
-}
-
-.header-principal h1 {
-    font-size: 38px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    margin-bottom: 12px;
-}
-
-.header-principal p {
-    font-size: 24px;
-    color: #E2E8F0;
-}
-
-/* Sumário Navegável */
-.sumario {
-    background-color: var(--bg-card);
-    border: 2px solid #CBD5E1;
-    border-radius: 12px;
-    padding: 20px 25px;
-    margin-bottom: 30px;
-}
-
-.sumario h2 {
-    font-size: 22px;
-    color: var(--texto-secundario);
-    margin-bottom: 12px;
-}
-
-.sumario ul {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.sumario a {
-    display: inline-block;
-    background-color: var(--azul-suave);
-    color: var(--azul-primario);
-    text-decoration: none;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 8px;
-    border: 1px solid #BFDBFE;
-}
-
-.sumario a:hover,
-.sumario a:focus {
-    background-color: var(--azul-primario);
+.link-card:hover, .link-card:focus {
+    background-color: var(--cor-primaria);
     color: #FFFFFF;
 }
 
-/* Cards de Dicas */
+/* ==========================================================================
+   5. CARTÕES DE DICAS E ALERTAS
+   ========================================================================== */
 .card-dica {
     background-color: var(--bg-card);
-    border: 2px solid #E2E8F0;
-    border-radius: 16px;
+    border-radius: 18px;
+    border: var(--borda-suave);
     padding: 30px;
     margin-bottom: 30px;
-    box-shadow: var(--sombra-card);
+    box-shadow: var(--sombra);
 }
 
-.card-cabecalho {
+.card-header {
     display: flex;
     align-items: center;
     gap: 15px;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #F1F5F9;
     padding-bottom: 15px;
+    border-bottom: 2px solid var(--bg-pagina);
+    margin-bottom: 20px;
 }
 
 .badge-numero {
-    background-color: var(--azul-primario);
+    background-color: var(--cor-primaria);
     color: #FFFFFF;
-    font-size: 24px;
-    font-weight: bold;
-    width: 45px;
-    height: 45px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 26px;
+    font-weight: bold;
     flex-shrink: 0;
 }
 
-.card-cabecalho h2 {
-    font-size: 28px;
-    color: var(--azul-escuro);
+.card-header h2 {
+    font-size: 26px;
 }
 
-.card-corpo p {
-    color: var(--texto-secundario);
+.card-body p {
+    color: var(--texto-suave);
     margin-bottom: 20px;
 }
 
-/* Caixas de Alerta Especializadas */
-.caixa-alerta {
+.alerta {
     display: flex;
     align-items: flex-start;
     gap: 15px;
     padding: 20px;
-    border-radius: 10px;
-    border: 2px solid transparent;
+    border-radius: 12px;
+    border-left: 8px solid;
 }
 
-.icone-alerta {
-    font-size: 30px;
+.alerta-icone {
+    font-size: 32px;
     line-height: 1;
 }
 
 .alerta-perigo {
-    background-color: var(--vermelho-fundo);
-    color: var(--vermelho-alerta);
-    border-color: var(--vermelho-borda);
+    background-color: var(--alerta-perigo-bg);
+    color: var(--alerta-perigo-txt);
+    border-color: var(--cor-destaque);
 }
 
-.alerta-info {
-    background-color: var(--amarelo-fundo);
-    color: var(--amarelo-alerta);
-    border-color: var(--amarelo-borda);
+.alerta-atencao {
+    background-color: var(--alerta-atencao-bg);
+    color: var(--alerta-atencao-txt);
+    border-color: #D97706;
 }
 
-.alerta-seguranca {
-    background-color: var(--verde-fundo);
-    color: var(--verde-alerta);
-    border-color: var(--verde-borda);
+.alerta-sucesso {
+    background-color: var(--alerta-sucesso-bg);
+    color: var(--alerta-sucesso-txt);
+    border-color: #059669;
 }
 
-/* Botão de Chamada de Ação */
+/* ==========================================================================
+   6. PERGUNTAS FREQUENTES (ACCORDION HTML/CSS)
+   ========================================================================== */
+.secao-faq {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.secao-faq h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.item-faq {
+    background-color: var(--bg-card);
+    border: var(--borda-suave);
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.item-faq summary {
+    padding: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-faq summary::-webkit-details-marker {
+    display: none;
+}
+
+.item-faq[open] summary {
+    background-color: var(--bg-pagina);
+    border-bottom: var(--borda-suave);
+}
+
+.item-faq[open] .seta-faq {
+    transform: rotate(180deg);
+}
+
+.seta-faq {
+    transition: transform 0.2s ease;
+    font-size: 18px;
+}
+
+.resposta-faq {
+    padding: 20px;
+    color: var(--texto-suave);
+}
+
+/* ==========================================================================
+   7. BOTÃO DE AÇÃO & RODAPÉ
+   ========================================================================== */
 .secao-suporte {
     text-align: center;
-    margin-top: 40px;
     background-color: var(--bg-card);
-    padding: 30px;
-    border-radius: 16px;
-    border: 2px solid #E2E8F0;
+    padding: 35px 20px;
+    border-radius: 18px;
+    border: var(--borda-suave);
+    margin-bottom: 40px;
 }
 
 .secao-suporte h2 {
     font-size: 26px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
-.btn-acao-principal {
+.btn-chamada-emergencia {
     display: inline-block;
     width: 100%;
-    background-color: #D9381E;
+    background-color: var(--cor-destaque);
     color: #FFFFFF;
     text-decoration: none;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: bold;
-    padding: 22px 20px;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-.btn-acao-principal:hover,
-.btn-acao-principal:focus {
+.btn-chamada-emergencia:hover, .btn-chamada-emergencia:focus {
     background-color: #B22222;
-    outline: var(--sombra-foco);
+    outline: 4px solid #000000;
 }
 
-/* Rodapé */
-footer {
+.rodape {
     text-align: center;
-    margin-top: 40px;
+    padding: 30px 0;
+    color: var(--texto-suave);
     font-size: 18px;
-    color: #64748B;
-}
-.alerta-seguranca {
-    background-color: var(--verde-fundo);
-    color: var(--verde-alerta);
-    border-color: var(--verde-borda);
+    border-top: var(--borda-suave);
 }
 
-/* Botão de Chamada de Ação */
-.secao-suporte {
-    text-align: center;
-    margin-top: 40px;
-    background-color: var(--bg-card);
-    padding: 30px;
-    border-radius: 16px;
-    border: 2px solid #E2E8F0;
-}
+/* ==========================================================================
+   8. ESTILOS DE IMPRESSÃO (PRINT MEDIA)
+   ========================================================================== */
+@media print {
+    .barra-acessibilidade, .sumario-rapido, .secao-suporte {
+        display: none !important;
+    }
 
-.secao-suporte h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
-}
+    body {
+        background-color: #FFFFFF !important;
+        color: #000000 !important;
+        font-size: 16pt;
+    }
 
-.btn-acao-principal {
-    display: inline-block;
-    width: 100%;
-    background-color: #D9381E;
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 26px;
-    font-weight: bold;
-    padding: 22px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    transition: background-color 0.2s ease;
-}
+    .card-dica, .item-faq {
+        border: 1px solid #000000 !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+    }
 
-.btn-acao-principal:hover,
-.btn-acao-principal:focus {
-    background-color: #B22222;
-    outline: var(--sombra-foco);
-}
+    .header-app {
+        background: none !important;
+        color: #000000 !important;
+        border-bottom: 2px solid #000000;
+    }
 
-/* Rodapé */
-footer {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 18px;
-    color: #64748B;
+    details[open] .resposta-faq, details .resposta-faq {
+        display: block !important;
+    }
 }
