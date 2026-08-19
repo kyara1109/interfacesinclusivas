@@ -1,377 +1,131 @@
-/* ==========================================================================
-   1. VARIÁVEIS DE DESIGN E TEMAS (PADRÃO & ALTO CONTRASTE)
-   ========================================================================== */
+/* Configurações Globais e Padrão de Leitura */
 :root {
-    --bg-pagina: #F4F7FA;
-    --bg-card: #FFFFFF;
-    --texto-principal: #1E293B;
-    --texto-suave: #475569;
-    
-    --cor-primaria: #0B4F6C;
-    --cor-primaria-hover: #012A36;
-    --cor-destaque: #D9381E;
-
-    --alerta-perigo-bg: #FEE2E2;
-    --alerta-perigo-txt: #991B1B;
-    --alerta-perigo-borda: #FCA5A5;
-
-    --alerta-atencao-bg: #FEF3C7;
-    --alerta-atencao-txt: #92400E;
-    --alerta-atencao-borda: #FDE68A;
-
-    --alerta-sucesso-bg: #D1FAE5;
-    --alerta-sucesso-txt: #065F46;
-    --alerta-sucesso-borda: #6EE7B7;
-
-    --sombra: 0 4px 15px rgba(0, 0, 0, 0.06);
-    --borda-suave: 2px solid #E2E8F0;
-}
-
-/* Regra CSS para trocar as cores quando o checkbox de contraste for ativado */
-#toggle-contraste:checked ~ .app-container,
-#toggle-contraste:checked ~ .barra-acessibilidade {
-    --bg-pagina: #000000;
-    --bg-card: #121212;
-    --texto-principal: #FFFFFF;
-    --texto-suave: #F1F5F9;
-    --cor-primaria: #00E5FF;
-    --cor-primaria-hover: #80D8FF;
-    --cor-destaque: #FF5252;
-    --borda-suave: 3px solid #FFFFFF;
-}
-
-/* ==========================================================================
-   2. REGRAS GERAIS E ESTRUTURA
-   ========================================================================== */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --bg-color: #f4f6f8;
+    --card-bg: #ffffff;
+    --text-color: #222222;
+    --primary-color: #0056b3;
+    --accent-color: #d9534f;
+    --border-color: #cccccc;
 }
 
 body {
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-    background-color: var(--bg-pagina);
-    color: var(--texto-principal);
-    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
-    transition: background-color 0.3s ease;
-}
-
-/* Ocultar elementos acessíveis apenas para leitores de tela */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
+    margin: 0;
     padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 100%;
 }
 
-.container {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-/* ==========================================================================
-   3. BARRA DE ACESSIBILIDADE E MODO ALTO CONTRASTE
-   ========================================================================== */
-.barra-acessibilidade {
-    background-color: #0F172A;
-    color: #FFFFFF;
-    padding: 12px 0;
-}
-
-.flex-barra {
+/* Barra de Acessibilidade Fixa */
+.bar-acessibilidade {
+    position: sticky;
+    top: 0;
+    background-color: #1a1a1a;
+    padding: 10px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
     gap: 10px;
-}
-
-.btn-toggle {
-    background-color: #FFFFFF;
-    color: #0F172A;
-    padding: 8px 18px;
-    border-radius: 8px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    border: 2px solid #FFFFFF;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.btn-toggle:hover, .btn-toggle:focus {
-    background-color: #E2E8F0;
-    outline: 3px solid #00E5FF;
-}
-
-/* ==========================================================================
-   4. CABEÇALHO E SUMÁRIO RÁPIDO
-   ========================================================================== */
-.header-app {
-    background: linear-gradient(135deg, var(--cor-primaria), #02182B);
-    color: #FFFFFF;
-    text-align: center;
-    padding: 40px 20px;
-    border-radius: 20px;
-    margin: 25px 0;
-    box-shadow: var(--sombra);
-}
-
-.escudo-app {
-    font-size: 55px;
-    margin-bottom: 10px;
-}
-
-.header-app h1 {
-    font-size: 36px;
-    margin-bottom: 10px;
-}
-
-.sumario-rapido {
-    background-color: var(--bg-card);
-    padding: 25px;
-    border-radius: 16px;
-    border: var(--borda-suave);
-    margin-bottom: 30px;
-}
-
-.sumario-rapido h2 {
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 12px;
-}
-
-.link-card {
-    background-color: var(--bg-pagina);
-    color: var(--texto-principal);
-    text-decoration: none;
-    padding: 12px 16px;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: bold;
-    border: var(--borda-suave);
-    display: block;
-}
-
-.link-card:hover, .link-card:focus {
-    background-color: var(--cor-primaria);
-    color: #FFFFFF;
-}
-
-/* ==========================================================================
-   5. CARTÕES DE DICAS E ALERTAS
-   ========================================================================== */
-.card-dica {
-    background-color: var(--bg-card);
-    border-radius: 18px;
-    border: var(--borda-suave);
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: var(--sombra);
-}
-
-.card-header {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--bg-pagina);
-    margin-bottom: 20px;
-}
-
-.badge-numero {
-    background-color: var(--cor-primaria);
-    color: #FFFFFF;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: center;
-    font-size: 26px;
+    z-index: 1000;
+}
+
+.bar-acessibilidade button {
+    background-color: #ffffff;
+    color: #000000;
+    border: 2px solid #ffffff;
+    padding: 8px 16px;
     font-weight: bold;
-    flex-shrink: 0;
-}
-
-.card-header h2 {
-    font-size: 26px;
-}
-
-.card-body p {
-    color: var(--texto-suave);
-    margin-bottom: 20px;
-}
-
-.alerta {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 20px;
-    border-radius: 12px;
-    border-left: 8px solid;
-}
-
-.alerta-icone {
-    font-size: 32px;
-    line-height: 1;
-}
-
-.alerta-perigo {
-    background-color: var(--alerta-perigo-bg);
-    color: var(--alerta-perigo-txt);
-    border-color: var(--cor-destaque);
-}
-
-.alerta-atencao {
-    background-color: var(--alerta-atencao-bg);
-    color: var(--alerta-atencao-txt);
-    border-color: #D97706;
-}
-
-.alerta-sucesso {
-    background-color: var(--alerta-sucesso-bg);
-    color: var(--alerta-sucesso-txt);
-    border-color: #d88509;
-}
-
-/* ==========================================================================
-   6. PERGUNTAS FREQUENTES (ACCORDION HTML/CSS)
-   ========================================================================== */
-.secao-faq {
-    margin-top: 40px;
-    margin-bottom: 40px;
-}
-
-.secao-faq h2 {
-    font-size: 28px;
-    margin-bottom: 20px;
-}
-
-.item-faq {
-    background-color: var(--bg-card);
-    border: var(--borda-suave);
-    border-radius: 12px;
-    margin-bottom: 15px;
-    overflow: hidden;
-}
-
-.item-faq summary {
-    padding: 20px;
-    font-size: 22px;
-    font-weight: bold;
+    font-size: 1rem;
     cursor: pointer;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    border-radius: 6px;
 }
 
-.item-faq summary::-webkit-details-marker {
-    display: none;
+.bar-acessibilidade button:focus,
+.bar-acessibilidade button:hover {
+    outline: 3px solid #ffcc00;
+    background-color: #e6e6e6;
 }
 
-.item-faq[open] summary {
-    background-color: var(--bg-pagina);
-    border-bottom: var(--borda-suave);
+/* Conteúdo Principal */
+.conteudo-principal {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px 80px 20px;
 }
 
-.item-faq[open] .seta-faq {
-    transform: rotate(180deg);
-}
-
-.seta-faq {
-    transition: transform 0.2s ease;
-    font-size: 18px;
-}
-
-.resposta-faq {
-    padding: 20px;
-    color: var(--texto-suave);
-}
-
-/* ==========================================================================
-   7. BOTÃO DE AÇÃO & RODAPÉ
-   ========================================================================== */
-.secao-suporte {
+h1 {
+    color: var(--primary-color);
     text-align: center;
-    background-color: var(--bg-card);
-    padding: 35px 20px;
-    border-radius: 18px;
-    border: var(--borda-suave);
-    margin-bottom: 40px;
+    font-size: 2rem;
 }
 
-.secao-suporte h2 {
-    font-size: 26px;
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
     margin-bottom: 20px;
 }
 
-.btn-chamada-emergencia {
-    display: inline-block;
-    width: 100%;
-    background-color: var(--cor-destaque);
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 24px;
+.card h2 {
+    color: var(--primary-color);
+    margin-top: 0;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Botão Flutuante de Ajuda */
+.btn-ajuda-flutuante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--accent-color);
+    color: #ffffff;
+    border: none;
+    padding: 16px 24px;
+    font-size: 1.2rem;
     font-weight: bold;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 999;
 }
 
-.btn-chamada-emergencia:hover, .btn-chamada-emergencia:focus {
-    background-color: #B22222;
-    outline: 4px solid #000000;
+.btn-ajuda-flutuante:focus,
+.btn-ajuda-flutuante:hover {
+    outline: 4px solid #ffcc00;
+    background-color: #c9302c;
 }
 
-.rodape {
-    text-align: center;
-    padding: 30px 0;
-    color: var(--texto-suave);
-    font-size: 18px;
-    border-top: var(--borda-suave);
+/* Modo de Alto Contraste */
+body.alto-contraste {
+    --bg-color: #000000;
+    --card-bg: #000000;
+    --text-color: #ffff00;
+    --primary-color: #00ffff;
+    --accent-color: #ff0000;
+    --border-color: #ffffff;
 }
-{  
-/* ==========================================================================
-   8. ESTILOS DE IMPRESSÃO (PRINT MEDIA)
-   ========================================================================== */
-@media print }
-    .barra-acessibilidade, .sumario-rapido, .secao-suporte {
-        display: none !important;
-    }
 
-    body {
-        background-color: #FFFFFF !important;
-        color: #000000 !important;
-        font-size: 16pt;
-    }
+body.alto-contraste .card {
+    border: 3px solid #ffffff;
+}
 
-    .card-dica, .item-faq {
-        border: 1px solid #000000 !important;
-        box-shadow: none !important;
-        page-break-inside: avoid;
-    }
+body.alto-contraste .bar-acessibilidade {
+    background-color: #000000;
+    border-bottom: 2px solid #ffffff;
+}
 
-    .header-app {
-        background: none !important;
-        color: #000000 !important;
-        border-bottom: 2px solid #000000;
-    }
-
-    details[open] .resposta-faq, details .resposta-faq {
-        display: block !important;
-    } 
-   
+body.alto-contraste .bar-acessibilidade button {
+    background-color: #000000;
+    color: #ffff00;
+    border-color: #ffff00;
+}
