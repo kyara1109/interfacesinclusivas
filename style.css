@@ -344,11 +344,11 @@ body {
     font-size: 18px;
     border-top: var(--borda-suave);
 }
-
+{  
 /* ==========================================================================
    8. ESTILOS DE IMPRESSÃO (PRINT MEDIA)
    ========================================================================== */
-@media print {
+@media print }
     .barra-acessibilidade, .sumario-rapido, .secao-suporte {
         display: none !important;
     }
