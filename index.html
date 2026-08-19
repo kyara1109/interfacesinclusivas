@@ -3,152 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guia de Segurança Digital - Terceira Idade</title>
+    <title>Guia de Segurança contra Golpes</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <input type="checkbox" id="toggle-contraste" class="sr-only">
+    <!-- Barra de Ferramentas de Acessibilidade -->
+    <header class="bar-acessibilidade" role="region" aria-label="Controles de Acessibilidade">
+        <button onclick="alterarFonte(1)" aria-label="Aumentar tamanho do texto">A+</button>
+        <button onclick="alterarFonte(-1)" aria-label="Diminuir tamanho do texto">A-</button>
+        <button onclick="alternarContraste()" aria-label="Alternar alto contraste">Alto Contraste</button>
+        <button onclick="lerPagina()" aria-label="Ouvir o texto da página">🔊 Ler Página</button>
+        <button onclick="pararLeitura()" aria-label="Parar leitura">⏹️ Parar</button>
+    </header>
 
-    <div class="barra-acessibilidade">
-        <div class="container flex-barra">
-            <span>Acessibilidade Visual:</span>
-            <label for="toggle-contraste" class="btn-toggle" tabIndex="0">
-                <span class="icone-modo">👁️</span> Alternar Alto Contraste
-            </label>
-        </div>
-    </div>
+    <main class="conteudo-principal">
+        <h1>Guia Rápido: Como Se Proteger de Golpes Digitales</h1>
 
-    <div class="container app-container">
-        
-        <header role="banner" class="header-app">
-            <div class="escudo-app" aria-hidden="true">🛡️</div>
-            <h1>Portal de Segurança Digital</h1>
-            <p>Guia simples para proteger suas informações na internet</p>
-        </header>
+        <section class="card">
+            <h2>Golpes Mais Comuns</h2>
+            <ul>
+                <li><strong>Mensagens de urgência:</strong> Golpistas se passam por parentes pedindo dinheiro rápido via Pix.</li>
+                <li><strong>Falsas centrais bancárias:</strong> Ligações informando compras suspeitas e pedindo senhas.</li>
+                <li><strong>Links suspeitos:</strong> E-mails ou SMS com links para roubar dados de cartão ou login.</li>
+            </ul>
+        </section>
 
-        <nav class="sumario-rapido" aria-label="Acesso rápido">
-            <h2>Navegue pelas Dicas:</h2>
-            <div class="links-grid">
-                <a href="#dica-1" class="link-card">📱 1. Mensagens no WhatsApp</a>
-                <a href="#dica-2" class="link-card">🔗 2. Cuidado com Links</a>
-                <a href="#dica-3" class="link-card">🔑 3. Proteção de Senhas</a>
-                <a href="#faq" class="link-card">❓ Dúvidas Frequentes</a>
-            </div>
-        </nav>
+        <section class="card">
+            <h2>Como Não Cair em Golpes</h2>
+            <ul>
+                <li><strong>Confirme por outro canal:</strong> Se um parente pedir dinheiro, ligue diretamente para o número habitual dele.</li>
+                <li><strong>Nunca informe senhas:</strong> Bancos jamais pedem senhas ou códigos por telefone/WhatsApp.</li>
+                <li><strong>Não clique em links desconhecidos:</strong> Acesse os sites digitando o endereço oficial no navegador.</li>
+            </ul>
+        </section>
 
-        <main role="main">
+        <section class="card" id="secao-ajuda">
+            <h2>Quem Procurar para Pedir Ajuda?</h2>
+            <p>Se você suspeita de um golpe ou foi vítima:</p>
+            <ul>
+                <li><strong>Seu Banco:</strong> Ligue imediatamente para o canal oficial de atendimento do banco para bloquear senhas ou transações.</li>
+                <li><strong>Polícia Civil (190 / Delegacia Virtual):</strong> Registre um Boletim de Ocorrência (B.O.).</li>
+                <li><strong>PROCON:</strong> Para orientações sobre direitos e fraudes comerciais.</li>
+            </ul>
+        </section>
+    </main>
 
-            <article id="dica-1" class="card-dica">
-                <header class="card-header">
-                    <span class="badge-numero">1</span>
-                    <h2>Golpe da Falsa Emergência (WhatsApp)</h2>
-                </header>
-                <div class="card-body">
-                    <p>
-                        Golpistas costumam fingir ser filhos ou netos usando um número novo, dizendo que perderam o celular e que precisam de um Pix urgente.
-                    </p>
-                    <div class="alerta alerta-perigo">
-                        <span class="alerta-icone" aria-hidden="true">🛑</span>
-                        <div>
-                            <strong>O que fazer:</strong> Ligue imediatamente para o número antigo do seu familiar. Não faça transferências sem ouvir a voz da pessoa.
-                        </div>
-                    </div>
-                </div>
-            </article>
+    <!-- Botão Flutuante de Emergência / Ajuda -->
+    <button class="btn-ajuda-flutuante" onclick="mostrarModalAjuda()" aria-label="Botão de Ajuda Rápida">
+        🚨 Preciso de Ajuda
+    </button>
 
-            <article id="dica-2" class="card-dica">
-                <header class="card-header">
-                    <span class="badge-numero">2</span>
-                    <h2>Links Falsos em SMS e E-mail</h2>
-                </header>
-                <div class="card-body">
-                    <p>
-                        Mensagens prometendo prêmios, dinheiro esquecido ou avisando sobre "conta bloqueada" quase sempre contêm links para roubar seus dados.
-                    </p>
-                    <div class="alerta alerta-atencao">
-                        <span class="alerta-icone" aria-hidden="true">⚠️</span>
-                        <div>
-                            <strong>Regra de Ouro:</strong> Nunca clique em links recebidos de números desconhecidos. Em caso de dúvida, ligue para o seu banco.
-                        </div>
-                    </div>
-                </div>
-            </article>
+    <!-- Script de Funcionalidades de Acessibilidade -->
+    <script>
+        let tamanhoFonteAtual = 100;
 
-            <article id="dica-3" class="card-dica">
-                <header class="card-header">
-                    <span class="badge-numero">3</span>
-                    <h2>Senhas e Códigos São Secretos</h2>
-                </header>
-                <div class="card-body">
-                    <p>
-                        Códigos de verificação que chegam por SMS no seu celular são a chave do seu aplicativo. Nunca leia nem envie esses códigos para ninguém.
-                    </p>
-                    <div class="alerta alerta-sucesso">
-                        <span class="alerta-icone" aria-hidden="true">🔒</span>
-                        <div>
-                            <strong>Lembre-se:</strong> O seu banco e os funcionários do aplicativo nunca pedem a sua senha por telefone.
-                        </div>
-                    </div>
-                </div>
-            </article>
+        function alterarFonte(fator) {
+            tamanhoFonteAtual += fator * 10;
+            if (tamanhoFonteAtual < 80) tamanhoFonteAtual = 80;
+            if (tamanhoFonteAtual > 160) tamanhoFonteAtual = 160;
+            document.body.style.fontSize = tamanhoFonteAtual + '%';
+        }
 
-            <section id="faq" class="secao-faq">
-                <h2>Perguntas Frequentes (Toque para ler)</h2>
+        function alternarContraste() {
+            document.body.classList.toggle('alto-contraste');
+        }
 
-                <details class="item-faq">
-                    <summary>
-                        <span>O que fazer se eu clicar em um link suspeito?</span>
-                        <span class="seta-faq" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="resposta-faq">
-                        <p>Desconecte a internet do celular (desligue o Wi-Fi/4G), não digite nenhuma senha e peça para uma pessoa de confiança ou técnico verificar o aparelho.</p>
-                    </div>
-                </details>
+        function lerPagina() {
+            window.speechSynthesis.cancel();
+            const texto = document.body.innerText;
+            const utterance = new SpeechSynthesisUtterance(texto);
+            utterance.lang = 'pt-BR';
+            window.speechSynthesis.speak(utterance);
+        }
 
-                <details class="item-faq">
-                    <summary>
-                        <span>Como criar uma senha fácil de lembrar mas segura?</span>
-                        <span class="seta-faq" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="resposta-faq">
-                        <p>Junte 3 palavras simples separadas por um símbolo. Exemplo: <strong>Cafe!Bolo#Sol</strong>. Evite usar datas de aniversário ou seu nome completo.</p>
-                    </div>
-                </details>
+        function pararLeitura() {
+            window.speechSynthesis.cancel();
+        }
 
-                <details class="item-faq">
-                    <summary>
-                        <span>Como sei se a ligação é realmente do meu banco?</span>
-                        <span class="seta-faq" aria-hidden="true">▼</span>
-                    </summary>
-                    <div class="resposta-faq">
-                        <p>Desligue a chamada. Pegue seu cartão de banco, procure o número oficial de telefone impresso no verso do cartão e ligue você mesmo.</p>
-                    </div>
-                </details>
-            </section>
-
-            <section class="secao-suporte">
-                <h2>Ainda tem dúvidas?</h2>
-                <a href="tel:190" class="btn-chamada-emergencia">
-                    📞 Falar com um parente ou pessoa de confiança
-                </a>
-            </section>
-
-        </main>
-
-        <footer role="contentinfo" class="rodape">
-            <p><strong>Guia de Acessibilidade e Segurança Digital</strong></p>
-            <p>Tipografia ampliada e alto contraste adaptado para melhor leitura.</p>
-        </footer>
-
-    </div>
-
-    <!-- MENU DE ACESSIBILIDADE -->
-<nav class="barra-acessibilidade" aria-label="Controles de Acessibilidade">
-    <button class="botao-controle" onclick="alterarFonte(2)" title="Aumentar texto">A+ Aumentar</button>
-    <button class="botao-controle" onclick="alterarFonte(-2)" title="Diminuir texto">A- Diminuir</button>
-    <button class="botao-controle botao-leitura" onclick="lerTexto()" id="btn-voz">�� Ouvir Página</button>
-    <button class="botao-controle" onclick="pararLeitura()">⏹️ Parar</button>
-</nav>
+        function mostrarModalAjuda() {
+            const secao = document.getElementById('secao-ajuda');
+            secao.scrollIntoView({ behavior: 'smooth' });
+            alert("Ligue para o seu banco pelo número impresso no verso do cartão ou ligue 190 em caso de emergência.");
+        }
+    </script>
 </body>
 </html>
